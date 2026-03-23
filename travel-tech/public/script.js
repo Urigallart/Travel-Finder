@@ -1,5 +1,3 @@
-const API_URL = "http://localhost:3000";
-
 async function searchCountry() {
     const country = document.getElementById("countryInput").value.trim();
     const resultDiv = document.getElementById("result");
@@ -57,7 +55,7 @@ async function addFavorite(countryData) {
     const errorDiv = document.getElementById("error");
 
     try {
-        const response = await fetch(`${API_URL}/favorites`, {
+        const response = await fetch("/favorites", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -82,7 +80,7 @@ async function loadFavorites() {
     const list = document.getElementById("favorites");
 
     try {
-        const response = await fetch(`${API_URL}/favorites`);
+        const response = await fetch("/favorites");
         const data = await response.json();
 
         list.innerHTML = "";
@@ -101,7 +99,7 @@ async function loadFavorites() {
 }
 
 async function deleteFavorite(id) {
-    await fetch(`${API_URL}/favorites/${id}`, {
+    await fetch(`/favorites/${id}`, {
         method: "DELETE"
     });
 

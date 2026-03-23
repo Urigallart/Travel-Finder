@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
@@ -10,12 +10,12 @@ app.use(express.static("public"));
 
 let favorites = [];
 
-// GET - veure favorites
+// GET - obtenir favorites
 app.get("/favorites", (req, res) => {
     res.status(200).json(favorites);
 });
 
-// POST - afegir favorit
+// POST - afegir favorita
 app.post("/favorites", (req, res) => {
     const { country, capital, region, population, flag } = req.body;
 
@@ -48,7 +48,7 @@ app.post("/favorites", (req, res) => {
     res.status(201).json(newFavorite);
 });
 
-// DELETE - eliminar favorit
+// DELETE - eliminar favorita
 app.delete("/favorites/:id", (req, res) => {
     const id = parseInt(req.params.id);
 
@@ -68,5 +68,5 @@ app.delete("/favorites/:id", (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Servidor executant-se a http://localhost:${PORT}`);
+    console.log(`Servidor executant-se al port ${PORT}`);
 });
