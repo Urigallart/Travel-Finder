@@ -1,0 +1,231 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #dbeafe, #eff6ff, #f8fafc);
+    min-height: 100vh;
+    padding: 40px 20px;
+    color: #1e293b;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 24px;
+    padding: 35px;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+    backdrop-filter: blur(8px);
+}
+
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    color: #0f172a;
+    text-align: center;
+}
+
+h2 {
+    margin-top: 35px;
+    margin-bottom: 18px;
+    font-size: 1.5rem;
+    color: #1d4ed8;
+    border-bottom: 2px solid #dbeafe;
+    padding-bottom: 8px;
+}
+
+.search-box {
+    display: flex;
+    gap: 12px;
+    margin: 25px 0 20px 0;
+    flex-wrap: wrap;
+}
+
+input {
+    flex: 1;
+    min-width: 240px;
+    padding: 14px 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 14px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.25s ease;
+    background-color: #f8fafc;
+}
+
+input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+    background-color: white;
+}
+
+button {
+    border: none;
+    border-radius: 14px;
+    padding: 14px 20px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 22px rgba(37, 99, 235, 0.32);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.result {
+    margin-top: 25px;
+}
+
+.country-card {
+    background: linear-gradient(180deg, #ffffff, #f8fbff);
+    border: 1px solid #dbeafe;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(30, 41, 59, 0.08);
+    animation: fadeInUp 0.4s ease;
+}
+
+.country-card h3 {
+    font-size: 1.7rem;
+    margin-bottom: 14px;
+    color: #0f172a;
+}
+
+.country-card p {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #334155;
+}
+
+.country-card img {
+    margin: 18px 0;
+    width: 130px;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+}
+
+.loading,
+.error {
+    margin-top: 16px;
+    padding: 14px 16px;
+    border-radius: 14px;
+    font-weight: 600;
+    animation: fadeIn 0.3s ease;
+}
+
+.loading {
+    background-color: #dbeafe;
+    color: #1d4ed8;
+    border: 1px solid #93c5fd;
+}
+
+.error {
+    background-color: #fee2e2;
+    color: #b91c1c;
+    border: 1px solid #fca5a5;
+}
+
+.hidden {
+    display: none;
+}
+
+#favorites {
+    list-style: none;
+    margin-top: 15px;
+    display: grid;
+    gap: 14px;
+}
+
+#favorites li {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 18px;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#favorites li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 26px rgba(15, 23, 42, 0.10);
+}
+
+#favorites strong {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: #0f172a;
+}
+
+#favorites img {
+    margin-top: 10px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+}
+
+#favorites button {
+    margin-top: 10px;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    box-shadow: 0 8px 18px rgba(239, 68, 68, 0.22);
+}
+
+#favorites button:hover {
+    box-shadow: 0 12px 22px rgba(239, 68, 68, 0.30);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 22px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    input {
+        width: 100%;
+    }
+}
